@@ -34,7 +34,9 @@ const App = () => {
       >
         Increment
       </button>
-      <div id="counter">{count}</div>
+      <div id="counter" className={setClass}>
+        {count}
+      </div>
       <button
         id="decrement"
         onClick={() => {
