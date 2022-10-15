@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/App.css";
 const App = () => {
   const [count, issetCount] = useState(1);
-  const [setClass, isClassSet] = useState("normal");
+  const [setClass, isClassSet] = useState("");
 
   useEffect(() => {
     if (count % 3 === 0) {
