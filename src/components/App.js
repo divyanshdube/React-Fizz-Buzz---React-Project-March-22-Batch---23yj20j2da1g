@@ -1,40 +1,32 @@
 import React, { useState, useEffect } from "react";
 import "../styles/App.css";
 const App = () => {
-  const [count, issetCount] = useState(1);
-  const [setClass, isClassSet] = useState("");
+  const [counter, setCounter] = useState(1);
+  const [cls, setCls] = useState("normal");
 
   useEffect(() => {
-    if (count % 3 === 0) {
-      isClassSet("fizz");
-    } else if (count % 5 === 0) {
-      isClassSet("buzz");
-    } else if (count % 3 === 0 && count % 5 === 0) {
-      isClassSet("fizzbuzz");
-    } else {
-      isClassSet("normal");
+    if (counter % 3 === 0 && counter % 5 === 0) {
+      setCls("fizzbuzz");
+    } 
+     else if (counter % 5 === 0) {
+      setCls("buzz");
     }
-  }, [count]);
-
+    else if (counter % 3 === 0) {
+      setCls("fizz");
+    } 
+    else {
+      setCls("normal");
+    }
+  }, [counter]);
   return (
     <div id="main">
-      <button
-        id="increment"
-        onClick={() => {
-          issetCount(count + 1);
-        }}
-      >
+      <button id="increment" onClick={() => setCounter(counter + 1)}>
         Increment
       </button>
-      <div id="counter" className={setClass}>
-        {count}
+      <div id="counter" className={cls}>
+        {counter}
       </div>
-      <button
-        id="decrement"
-        onClick={() => {
-          issetCount(count - 1);
-        }}
-      >
+      <button id="decrement" onClick={() => setCounter(counter - 1)}>
         Decrement
       </button>
     </div>
